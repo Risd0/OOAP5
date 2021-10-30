@@ -1,0 +1,53 @@
+﻿<Page
+    x:Class="OOAP5.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:OOAP5"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mucx="using:Microsoft.UI.Xaml.Controls"
+    xmlns:sfchart="using:Syncfusion.UI.Xaml.Charts"
+    mc:Ignorable="d">
+
+    <Page.DataContext>
+        <local:ViewModelClass/>
+    </Page.DataContext>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <ComboBox PlaceholderText="Specie" Width="120" Margin="10,10,0,0">
+            <ComboBoxItem Content="Human"/>
+            <ComboBoxItem Content="Troll"/>
+            <ComboBoxItem Content="Orc"/>
+        </ComboBox>
+        <ComboBox PlaceholderText="Weapon" Width="120" Margin="10,47,0,0">
+            <ComboBoxItem Content="Bow"/>
+            <ComboBoxItem Content="Sword"/>
+            <ComboBoxItem Content="Mace"/>
+            <ComboBoxItem Content="Dagger"/>
+            <ComboBoxItem Content="Axe"/>
+        </ComboBox>
+        <mucx:NumberBox ToolTipService.ToolTip="Armor efficiency score" PlaceholderText="0.00" Margin="10,84,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120"/>
+        <ComboBox PlaceholderText="Shield" Width="120" Margin="10,121,0,0">
+            <ComboBoxItem Content="Wooden"/>
+            <ComboBoxItem Content="Steel"/>
+            <ComboBoxItem Content="Meteorite"/>
+        </ComboBox>
+        <Button Height="32" Width="50" ToolTipService.ToolTip="Add new character" Margin="141,121,0,0" VerticalAlignment="Top">
+            <Image Stretch="Uniform" Source="/Assets/AddCharacter.png"/>
+        </Button>
+        <sfchart:SfChart SideBySideSeriesPlacement="True" Margin="0,164,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="750">
+
+            <sfchart:SfChart.Legend>
+                <sfchart:ChartLegend ToggleSeriesVisibility="True" FontSize="16" IconHeight="15" IconWidth="15"/>
+            </sfchart:SfChart.Legend>
+
+            <sfchart:BarSeries ItemsSource="{Binding Data}" XBindingPath="Race" YBindingPath="Defense"  Label="Defense" SegmentSpacing="0.1" Interior="#88E0EF" ShowTooltip="True"/>
+            <sfchart:BarSeries ItemsSource="{Binding Data}" XBindingPath="Race" YBindingPath="Strength" Label="Strength" SegmentSpacing="0.1" Interior="#FF5151" ShowTooltip="True"/>
+        </sfchart:SfChart>
+        <ListView SelectionMode="Single" Margin="750,10,10,10" HorizontalAlignment="Right" VerticalAlignment="Top">
+            <DataTemplate>
+                <TextBlock/>
+            </DataTemplate>
+        </ListView>
+    </Grid>
+</Page>
