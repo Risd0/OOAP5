@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -22,13 +23,32 @@ namespace OOAP5
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        public ViewModelClass ViewModel { get; set; }
+
+        ObservableCollection<Warrior> WarriorsList => new();
+
         public MainPage()
         {
             this.InitializeComponent();
 
-            ViewModel = new();
+            Heroes.ItemsSource = WarriorsList;
         }
 
-        public ViewModelClass ViewModel { get; set; }
+        public void CreateWarrior_Click()
+        {
+            Warrior newWarrior = Race.SelectionBoxItem.ToString() switch
+            {
+                "Human" => new Human(CharacterName.Text),
+                "Troll" => new Troll(CharacterName.Text),
+                "Orc" => new Troll(CharacterName.Text),
+                _ => new Human(CharacterName.Text),
+            };
+
+            newWarrior = Weapon.SelectionBoxItem.ToString() switch
+            {
+                "Bow" => new Archer(newWarrior),
+                _ => new Archer(newWarrior),
+            };
+        }
     }
 }
