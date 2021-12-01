@@ -109,9 +109,9 @@ class Maceman : WarriorDecorator
 
 class Shielder : WarriorDecorator
 {
-    public Shielder(Warrior shielder) : base(shielder)
-    {
-    }
+    public int BlockAttacks { get; private set; }
+
+    public Shielder(Warrior shielder) : base(shielder) { }
 }
 
 class WarriorFacade
