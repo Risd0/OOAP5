@@ -15,12 +15,7 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <ComboBox x:Name="RaceOption" PlaceholderText="Specie" Width="120" Margin="10,10,0,0">
-            <ComboBoxItem>
-                <StackPanel Orientation="Vertical">
-                    <Image Source="/Assets/bow-and-arrow.png" HorizontalAlignment="Center" VerticalAlignment="Top" Width="50" />
-                    <TextBlock Text="Bow" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-                </StackPanel>
-            </ComboBoxItem>
+            <ComboBoxItem Content="Human"/>
             <ComboBoxItem Content="Troll"/>
             <ComboBoxItem Content="Orc"/>
         </ComboBox>

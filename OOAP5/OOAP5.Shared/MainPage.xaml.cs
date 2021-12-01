@@ -7,6 +7,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Globalization.NumberFormatting;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -37,6 +38,8 @@ namespace OOAP5
 
         public void CreateWarrior_Click()
         {
+            if (!RaceOption.IsSelectionBoxHighlighted) { _ = new MessageDialog("Race or weapon isn't selected!", "Hey man!").ShowAsync(); return; }
+
             WarriorFacade warriorBuilder = new();
             warriorBuilder.PickNameAndRace(RaceOption.SelectionBoxItem.ToString(), CharacterName.Text);
             warriorBuilder.PickWeapon(WeaponOption.SelectionBoxItem.ToString());
