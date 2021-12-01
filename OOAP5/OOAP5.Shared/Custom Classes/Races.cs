@@ -107,6 +107,13 @@ class Maceman : WarriorDecorator
     }
 }
 
+class Shielder : WarriorDecorator
+{
+    public Shielder(Warrior shielder) : base(shielder)
+    {
+    }
+}
+
 class WarriorFacade
 {
     public Warrior Warrior { get; private set; }
@@ -128,6 +135,11 @@ class WarriorFacade
     public void AddArmor(int armor = 0)
     {
         Warrior.CurrDef += armor;
+    }
+
+    public void AddShield(int armor = 0)
+    {
+        //TODO: Wrap Warrior into Shielder decorator
     }
 }
 

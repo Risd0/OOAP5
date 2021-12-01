@@ -38,7 +38,11 @@ namespace OOAP5
 
         public void CreateWarrior_Click()
         {
-            if (!RaceOption.IsSelectionBoxHighlighted) { _ = new MessageDialog("Race or weapon isn't selected!", "Hey man!").ShowAsync(); return; }
+            if (!RaceOption.IsSelectionBoxHighlighted || !WeaponOption.IsSelectionBoxHighlighted || string.IsNullOrEmpty(CharacterName.Text))
+            {
+                _ = new MessageDialog("Race, weapon or name is not given!", "Hey man!").ShowAsync();
+                return;
+            }
 
             WarriorFacade warriorBuilder = new();
             warriorBuilder.PickNameAndRace(RaceOption.SelectionBoxItem.ToString(), CharacterName.Text);
