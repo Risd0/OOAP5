@@ -1,31 +1,59 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="OOAP5.Troll" Collapsed="true">
-    <Position X="7.5" Y="2.5" Width="1.5" />
+  <Class Name="OOAP5.Human">
+    <Position X="5.5" Y="5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AQAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>C:\Users\Admin\source\OOAP\OOAP5\OOAP5\OOAP5.Shared\Custom Classes\Troll.cs</FileName>
+      <HashCode>AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Admin\source\repos\OOAP5\OOAP5\OOAP5.Shared\Custom Classes\Races.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="OOAP5.Human" Collapsed="true">
-    <Position X="2" Y="3" Width="1.5" />
+  <Class Name="OOAP5.Orc">
+    <Position X="8.5" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AQAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>C:\Users\Admin\source\OOAP\OOAP5\OOAP5\OOAP5.Shared\Custom Classes\Human.cs</FileName>
+      <HashCode>AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Admin\source\repos\OOAP5\OOAP5\OOAP5.Shared\Custom Classes\Races.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="OOAP5.Orc" Collapsed="true">
-    <Position X="4.25" Y="3.5" Width="1.5" />
+  <Class Name="OOAP5.Troll">
+    <Position X="13" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AQAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>C:\Users\Admin\source\OOAP\OOAP5\OOAP5\OOAP5.Shared\Custom Classes\Human.cs</FileName>
+      <HashCode>AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Admin\source\repos\OOAP5\OOAP5\OOAP5.Shared\Custom Classes\Races.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="OOAP5.Warrior" Collapsed="true">
-    <Position X="4.5" Y="1" Width="1.5" />
+  <Class Name="OOAP5.Warrior">
+    <Position X="8.75" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AQAAAAAAAAAAAAAAAAIAAAACAgAAAAABAAAAAQAAAAA=</HashCode>
-      <FileName>C:\Users\Admin\source\OOAP\OOAP5\OOAP5\OOAP5.Shared\Custom Classes\Human.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAEAAQAAAQAAAAAAAAAIAgAABAAAAA=</HashCode>
+      <FileName>C:\Users\Admin\source\repos\OOAP5\OOAP5\OOAP5.Shared\Custom Classes\Races.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OOAP5.WarriorDecorator">
+    <Position X="10.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Admin\source\repos\OOAP5\OOAP5\OOAP5.Shared\Custom Classes\Races.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OOAP5.Archer">
+    <Position X="10.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Admin\source\repos\OOAP5\OOAP5\OOAP5.Shared\Custom Classes\Races.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OOAP5.WarriorFacade">
+    <Position X="17.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAQAAAAAAACAAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>C:\Users\Admin\source\repos\OOAP5\OOAP5\OOAP5.Shared\Custom Classes\Races.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OOAP5.ViewModelClass" Collapsed="true">
+    <Position X="15.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Admin\source\repos\OOAP5\OOAP5\OOAP5.Shared\Custom Classes\Races.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

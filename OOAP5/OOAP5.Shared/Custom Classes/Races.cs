@@ -1,11 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace OOAP5;
 
 class Human : Warrior
 {
-    public const float minDefense = 31.4f;
-    public const float minStrength = 9.5f;
+    public const int minDefense = 435;
+    public const int minStrength = 95;
 
     public Human(string name) : base(name)
     {
@@ -15,8 +16,8 @@ class Human : Warrior
 
 class Orc : Warrior
 {
-    public const float minDefense = 40.6f;
-    public const float minStrength = 15.1f;
+    public const int minDefense = 570;
+    public const int minStrength = 150;
 
     public Orc(string name) : base(name)
     {
@@ -26,8 +27,8 @@ class Orc : Warrior
 
 class Troll : Warrior
 {
-    public const float minDefense = 43.7f;
-    public const float minStrength = 13.7f;
+    public const int minDefense = 600;
+    public const int minStrength = 135;
 
     public Troll(string name) : base(name)
     {
@@ -37,8 +38,8 @@ class Troll : Warrior
 
 abstract class Warrior
 {
-    public virtual float CurrDef { get; set; }
-    public virtual float CurrStrength { get; set; }
+    public virtual int CurrDef { get; set; }
+    public virtual int CurrStrength { get; protected set; }
     public virtual string Name { get; set; }
 
     public Warrior(string name)
@@ -51,7 +52,7 @@ abstract class Warrior
     /// </summary>
     /// <param name="minDefense"></param>
     /// <param name="minStrength"></param>
-    protected void InitStats(float minDefense, float minStrength)
+    protected void InitStats(int minDefense, int minStrength)
     {
         CurrDef = minDefense;
         CurrStrength = minStrength;
@@ -71,15 +72,62 @@ abstract class WarriorDecorator : Warrior
     public WarriorDecorator(Warrior warrior) : base(warrior.Name)
     {
         this.warrior = warrior;
+        this.CurrDef = warrior.CurrDef;
+        this.CurrStrength = warrior.CurrStrength;
+        this.Name = warrior.Name;
     }
 }
 
 class Archer : WarriorDecorator
 {
-    const float BowPower = 17.25f;
+    public const int BowPower = 205;
     public Archer(Warrior archer) : base(archer)
     {
         this.CurrStrength += BowPower;
+    }
+}
+
+class Swordsman : WarriorDecorator
+{
+    public const int SwordPower = 230;
+
+    public Swordsman(Warrior swordsman) : base(swordsman)
+    {
+        this.CurrStrength += SwordPower;
+    }
+}
+
+class Maceman : WarriorDecorator
+{
+    public const int MacePower = 175;
+
+    public Maceman(Warrior maceman) : base(maceman)
+    {
+        this.CurrStrength += MacePower;
+    }
+}
+
+class WarriorFacade
+{
+    public Warrior Warrior { get; private set; }
+
+    public void PickNameAndRace(string race, string name) => Warrior = race switch
+    {
+        "Human" => new Human(name),
+        "Troll" => new Troll(name),
+        "Orc" => new Troll(name),
+        _ => new Human(name),
+    };
+
+    public void PickWeapon(string weapon) => Warrior = weapon switch
+    {
+        "Bow" => new Archer(Warrior),
+        _ => new Archer(Warrior),
+    };
+
+    public void AddArmor(int armor = 0)
+    {
+        Warrior.CurrDef += armor;
     }
 }
 

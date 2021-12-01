@@ -14,29 +14,38 @@
     </Page.DataContext>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <ComboBox x:Name="Race" PlaceholderText="Specie" Width="120" Margin="10,10,0,0">
-            <ComboBoxItem Content="Human"/>
+        <ComboBox x:Name="RaceOption" PlaceholderText="Specie" Width="120" Margin="10,10,0,0">
+            <ComboBoxItem>
+                <StackPanel Orientation="Vertical">
+                    <Image Source="/Assets/bow-and-arrow.png" HorizontalAlignment="Center" VerticalAlignment="Top" Width="50" />
+                    <TextBlock Text="Bow" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                </StackPanel>
+            </ComboBoxItem>
             <ComboBoxItem Content="Troll"/>
             <ComboBoxItem Content="Orc"/>
         </ComboBox>
-        <ComboBox x:Name="Weapon" PlaceholderText="Weapon" Width="120" Margin="10,47,0,0">
+
+        <ComboBox x:Name="WeaponOption" PlaceholderText="Weapon" Width="120" Margin="10,47,0,0">
             <ComboBoxItem Content="Bow"/>
             <ComboBoxItem Content="Sword"/>
             <ComboBoxItem Content="Mace"/>
             <ComboBoxItem Content="Dagger"/>
             <ComboBoxItem Content="Axe"/>
         </ComboBox>
-        <mucx:NumberBox x:Name="ArmorPower" ToolTipService.ToolTip="Armor efficiency score" PlaceholderText="0.00" Margin="10,84,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120"/>
+
+        <mucx:NumberBox x:Name="ArmorPower" ToolTipService.ToolTip="Armor efficiency score" Margin="10,84,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" SpinButtonPlacementMode="Compact" Value="0" Minimum="0"/>
+
         <ComboBox x:Name="ShieldType" PlaceholderText="Shield" Width="120" Margin="10,121,0,0">
             <ComboBoxItem Content="Wooden"/>
             <ComboBoxItem Content="Steel"/>
             <ComboBoxItem Content="Meteorite"/>
         </ComboBox>
+
         <Button x:Name="CreateWarrior" Height="63" Width="100" ToolTipService.ToolTip="Add new character" Margin="185,84,0,0" VerticalAlignment="Top" Click="{x:Bind CreateWarrior_Click}">
             <Image Stretch="Uniform" Source="/Assets/AddCharacter.png"/>
         </Button>
-        <sfchart:SfChart SideBySideSeriesPlacement="True" Margin="0,164,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="750">
 
+        <sfchart:SfChart SideBySideSeriesPlacement="True" Margin="0,164,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="750">
             <sfchart:SfChart.Legend>
                 <sfchart:ChartLegend ToggleSeriesVisibility="True" FontSize="16" IconHeight="15" IconWidth="15"/>
             </sfchart:SfChart.Legend>
@@ -44,18 +53,28 @@
             <sfchart:BarSeries ItemsSource="{Binding Data}" XBindingPath="Race" YBindingPath="Defense"  Label="Defense" SegmentSpacing="0.1" Interior="#88E0EF" ShowTooltip="True"/>
             <sfchart:BarSeries ItemsSource="{Binding Data}" XBindingPath="Race" YBindingPath="Strength" Label="Strength" SegmentSpacing="0.1" Interior="#FF5151" ShowTooltip="True"/>
         </sfchart:SfChart>
-        <ListView x:Name="Heroes" SelectionMode="Single" Margin="755,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" AllowDrop="True" Height="572" Width="365">
-            <DataTemplate>
-                <Grid>
 
+        <ListView x:Name="Heroes" SelectionMode="Single" Margin="755,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" AllowDrop="True" Height="572" Width="365">
+            <DataTemplate x:DataType="local:MainPage">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
                 </Grid>
             </DataTemplate>
         </ListView>
+
         <ListView x:Name="StrongerHeroes" SelectionMode="Single" Margin="1125,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" AllowDrop="True" Height="980" Width="365">
             <DataTemplate>
                 <Grid/>
             </DataTemplate>
         </ListView>
+
         <TextBox x:Name="CharacterName" HorizontalAlignment="Left" Margin="135,10,0,0" TextWrapping="Wrap" PlaceholderText="Nameless" VerticalAlignment="Top" Width="200" Header="Character Name"/>
     </Grid>
 </Page>

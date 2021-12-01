@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Globalization.NumberFormatting;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -25,7 +26,7 @@ namespace OOAP5
     {
         public ViewModelClass ViewModel { get; set; }
 
-        ObservableCollection<Warrior> WarriorsList => new();
+        internal ObservableCollection<Warrior> WarriorsList => new();
 
         public MainPage()
         {
@@ -36,19 +37,11 @@ namespace OOAP5
 
         public void CreateWarrior_Click()
         {
-            Warrior newWarrior = Race.SelectionBoxItem.ToString() switch
-            {
-                "Human" => new Human(CharacterName.Text),
-                "Troll" => new Troll(CharacterName.Text),
-                "Orc" => new Troll(CharacterName.Text),
-                _ => new Human(CharacterName.Text),
-            };
+            WarriorFacade warriorBuilder = new();
+            warriorBuilder.PickNameAndRace(RaceOption.SelectionBoxItem.ToString(), CharacterName.Text);
+            warriorBuilder.PickWeapon(WeaponOption.SelectionBoxItem.ToString());
 
-            newWarrior = Weapon.SelectionBoxItem.ToString() switch
-            {
-                "Bow" => new Archer(newWarrior),
-                _ => new Archer(newWarrior),
-            };
+            WarriorsList.Add(warriorBuilder.Warrior);
         }
     }
 }
