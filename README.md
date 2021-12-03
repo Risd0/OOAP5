@@ -13,3 +13,6 @@ ___
 перевірку, чи є хтось сильніший за нього, та чи є персонажі, яких він може
 побити за 1, 5 чи 10 ударів (чи перевищує сила його удару чи групи ударів
 чийсь захист). При розробці скористатись шаблонами [Facade](https://refactoring.guru/design-patterns/facade/csharp/example) та [Decorator](https://metanit.com/sharp/patterns/4.1.php).
+
+___
+
