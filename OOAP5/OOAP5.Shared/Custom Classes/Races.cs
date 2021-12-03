@@ -58,8 +58,8 @@ abstract class Warrior
         CurrStrength = minStrength;
     }
 
-    public override string ToString() => $@"Name: {Name}
-Defense: {CurrDef}
+    public override string ToString() => $@"Name: {Name} 
+Defense: {CurrDef} 
 Strength: {CurrStrength}";
 }
 
@@ -76,27 +76,9 @@ abstract class WarriorDecorator : Warrior
     }
 }
 
-class Archer : WarriorDecorator
+class ArmedWarrior : WarriorDecorator
 {
-    public const int BowPower = 205;
-    public Archer(Warrior archer) : base(archer) { this.CurrStrength += BowPower; }
-}
-
-class Swordsman : WarriorDecorator
-{
-    public const int SwordPower = 230;
-
-    public Swordsman(Warrior swordsman) : base(swordsman) { this.CurrStrength += SwordPower; }
-}
-
-class Maceman : WarriorDecorator
-{
-    public const int MacePower = 175;
-
-    public Maceman(Warrior maceman) : base(maceman)
-    {
-        this.CurrStrength += MacePower;
-    }
+    public ArmedWarrior(Warrior archer, int weaponPower = 0) : base(archer) { this.CurrStrength += weaponPower; }
 }
 
 class Shielder : WarriorDecorator
@@ -120,14 +102,29 @@ class WarriorFacade
 
     public void PickWeapon(string weapon) => Warrior = weapon switch
     {
-        "Bow" => new Archer(Warrior),
-        _ => new Archer(Warrior),
+        "Bow" => new ArmedWarrior(Warrior, WeaponsPower.Bow),
+        "Sword" => new ArmedWarrior(Warrior, WeaponsPower.Sword),
+        "Mace" => new ArmedWarrior(Warrior, WeaponsPower.Mace),
+        "Dagger" => new ArmedWarrior(Warrior, WeaponsPower.Dagger),
+        "Axe" => new ArmedWarrior(Warrior, WeaponsPower.Axe),
+        _ => new ArmedWarrior(Warrior),
     };
+
+    static class WeaponsPower
+    {
+        public const int Bow = 245;
+        public const int Sword = 270;
+        public const int Mace = 190;
+        public const int Dagger = 225;
+        public const int Axe = 310;
+    }
 
     public void PickArmor(int armor = 0) => Warrior.CurrDef += armor;
 
     public void PickShield(int attackBlocks = 0) => Warrior = new Shielder(Warrior, attackBlocks);
 }
+
+
 
 // presenting list, displaying with Syncfusion chart (histogram)
 public class ViewModelClass
