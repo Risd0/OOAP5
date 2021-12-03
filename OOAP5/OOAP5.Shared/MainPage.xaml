@@ -50,9 +50,10 @@
             <sfchart:BarSeries ItemsSource="{Binding Data}" XBindingPath="Race" YBindingPath="Strength" Label="Strength" SegmentSpacing="0.1" Interior="#FF5151" ShowTooltip="True"/>
         </sfchart:SfChart>
 
-        <ListView x:Name="Heroes" ItemsSource="{x:Bind WarriorsList}" SelectionMode="Single" Margin="755,0,0,305" HorizontalAlignment="Left" VerticalAlignment="Bottom" AllowDrop="True" Height="685" Width="735">
-        </ListView>
+        <ListView x:Name="Heroes" ItemsSource="{x:Bind WarriorsList}" SelectionMode="Single" Margin="755,10,0,305" HorizontalAlignment="Left" AllowDrop="True" Width="735"/>
 
         <TextBox x:Name="CharacterName" HorizontalAlignment="Left" Margin="135,10,0,0" TextWrapping="Wrap" PlaceholderText="Nameless" VerticalAlignment="Top" Width="200" Header="Character Name"/>
+        <Button x:Name="CanBeat" Content="Can defeat" Margin="755,700,0,0" VerticalAlignment="Top" Height="45" Width="190"/>
+        <Button x:Name="CantBeat" Content="Can be defeated" Margin="1005,695,0,0" VerticalAlignment="Top" Height="45" Width="190"/>
     </Grid>
 </Page>
