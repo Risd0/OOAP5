@@ -58,9 +58,8 @@ abstract class Warrior
         CurrStrength = minStrength;
     }
 
-    public override string ToString() => $@"Name: {Name} 
-Defense: {CurrDef} 
-Strength: {CurrStrength}";
+    public override string ToString() => $@"Name: {Name}
+Defense: {CurrDef} Strength: {CurrStrength}";
 }
 
 abstract class WarriorDecorator : Warrior
