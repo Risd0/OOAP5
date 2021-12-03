@@ -28,7 +28,8 @@
             <ComboBoxItem Content="Axe"/>
         </ComboBox>
 
-        <mucx:NumberBox x:Name="ArmorPower" ToolTipService.ToolTip="Armor efficiency score" Margin="10,84,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" SpinButtonPlacementMode="Compact" Value="0" Minimum="0"/>
+        <mucx:NumberBox x:Name="ArmorPower" ToolTipService.ToolTip="Armor efficiency score" Margin="10,84,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120"
+                        SpinButtonPlacementMode="Compact" Value="0" Minimum="0"/>
 
         <ComboBox x:Name="ShieldType" PlaceholderText="Shield" Width="120" Margin="10,121,0,0">
             <ComboBoxItem Content="Wooden"/>

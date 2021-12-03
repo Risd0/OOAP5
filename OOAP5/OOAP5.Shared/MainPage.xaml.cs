@@ -38,7 +38,7 @@ namespace OOAP5
 
         public void CreateWarrior_Click()
         {
-            if (!RaceOption.IsSelectionBoxHighlighted || !WeaponOption.IsSelectionBoxHighlighted || string.IsNullOrEmpty(CharacterName.Text))
+            if (RaceOption.SelectedItem == null || WeaponOption.SelectedItem == null || string.IsNullOrEmpty(CharacterName.Text))
             {
                 _ = new MessageDialog("Race, weapon or name is not given!", "Hey man!").ShowAsync();
                 return;
@@ -52,9 +52,6 @@ namespace OOAP5
             WarriorsList.Add(warriorBuilder.Warrior);
         }
 
-        void IntFormatter()
-        {
-            ArmorPower.NumberFormatter = 
-        }
+        void IntFormatter() => ArmorPower.NumberFormatter = new DecimalFormatter() { FractionDigits = 0, NumberRounder = new IncrementNumberRounder() };
     }
 }
