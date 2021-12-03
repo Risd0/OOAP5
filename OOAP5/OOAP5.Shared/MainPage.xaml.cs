@@ -47,8 +47,14 @@ namespace OOAP5
             WarriorFacade warriorBuilder = new();
             warriorBuilder.PickNameAndRace(RaceOption.SelectionBoxItem.ToString(), CharacterName.Text);
             warriorBuilder.PickWeapon(WeaponOption.SelectionBoxItem.ToString());
+            warriorBuilder.PickArmor((int)ArmorPower.Value);
 
             WarriorsList.Add(warriorBuilder.Warrior);
+        }
+
+        void IntFormatter()
+        {
+            ArmorPower.NumberFormatter = 
         }
     }
 }

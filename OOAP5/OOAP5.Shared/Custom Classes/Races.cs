@@ -61,8 +61,6 @@ abstract class Warrior
     public override string ToString() => $@"Name: {Name}
 Defense: {CurrDef}
 Strength: {CurrStrength}";
-
-    public Warrior ShallowCopy() => (Warrior)MemberwiseClone();
 }
 
 abstract class WarriorDecorator : Warrior
@@ -81,20 +79,14 @@ abstract class WarriorDecorator : Warrior
 class Archer : WarriorDecorator
 {
     public const int BowPower = 205;
-    public Archer(Warrior archer) : base(archer)
-    {
-        this.CurrStrength += BowPower;
-    }
+    public Archer(Warrior archer) : base(archer) { this.CurrStrength += BowPower; }
 }
 
 class Swordsman : WarriorDecorator
 {
     public const int SwordPower = 230;
 
-    public Swordsman(Warrior swordsman) : base(swordsman)
-    {
-        this.CurrStrength += SwordPower;
-    }
+    public Swordsman(Warrior swordsman) : base(swordsman) { this.CurrStrength += SwordPower; }
 }
 
 class Maceman : WarriorDecorator
@@ -109,9 +101,9 @@ class Maceman : WarriorDecorator
 
 class Shielder : WarriorDecorator
 {
-    public int BlockAttacks { get; private set; }
+    public int AttackBlocks { get; private set; }
 
-    public Shielder(Warrior shielder) : base(shielder) { }
+    public Shielder(Warrior shielder, int attackBlocks) : base(shielder) { AttackBlocks = attackBlocks; }
 }
 
 class WarriorFacade
@@ -132,15 +124,9 @@ class WarriorFacade
         _ => new Archer(Warrior),
     };
 
-    public void AddArmor(int armor = 0)
-    {
-        Warrior.CurrDef += armor;
-    }
+    public void PickArmor(int armor = 0) => Warrior.CurrDef += armor;
 
-    public void AddShield(int armor = 0)
-    {
-        //TODO: Wrap Warrior into Shielder decorator
-    }
+    public void PickShield(int attackBlocks = 0) => Warrior = new Shielder(Warrior, attackBlocks);
 }
 
 // presenting list, displaying with Syncfusion chart (histogram)
