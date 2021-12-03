@@ -27,7 +27,7 @@ namespace OOAP5
     {
         public ViewModelClass ViewModel { get; set; }
 
-        internal ObservableCollection<Warrior> WarriorsList => new();
+        internal ObservableCollection<Warrior> WarriorsList = new();
 
         public MainPage()
         {

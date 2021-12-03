@@ -51,26 +51,9 @@
         </sfchart:SfChart>
 
         <ListView x:Name="Heroes" ItemsSource="{x:Bind WarriorsList}" SelectionMode="Single" Margin="755,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" AllowDrop="True" Height="980" Width="365">
-            <DataTemplate>
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-
-                    <TextBlock Text="{Binding ToString}"/>
-                </Grid>
-            </DataTemplate>
         </ListView>
 
         <ListView x:Name="StrongerHeroes" SelectionMode="Single" Margin="1125,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" AllowDrop="True" Height="980" Width="365">
-            <DataTemplate>
-                <Grid/>
-            </DataTemplate>
         </ListView>
 
         <TextBox x:Name="CharacterName" HorizontalAlignment="Left" Margin="135,10,0,0" TextWrapping="Wrap" PlaceholderText="Nameless" VerticalAlignment="Top" Width="200" Header="Character Name"/>
