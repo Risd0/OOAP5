@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Text;
 using Windows.Globalization.NumberFormatting;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
@@ -60,17 +61,20 @@ namespace OOAP5
                 else strongerWarriors.Add((warrior, warriorHits));
             }
 
-            SelectedDetails.ShowAt(Heroes as FrameworkElement);
+            StringBuilder details = new();
+
+            details.AppendLine("Heroes can beat:/");
 
             foreach (var stronger in strongerWarriors)
             {
 
             }
+            FlyoutInfo.ShowAt((FrameworkElement)Heroes);
 
             static int GetBlocks(Warrior warrior) => warrior is Shielder ? (warrior as Shielder).AttackBlocks : 0;
             static int DefPerDmg(Warrior yourWarrior, Warrior opponent) => opponent.CurrDef / yourWarrior.CurrStrength;
         }
 
-        void IntFormatter() => ArmorPower.NumberFormatter = new DecimalFormatter() { FractionDigits = 0, NumberRounder = new IncrementNumberRounder() };
+        public INumberFormatter2 IntFormatter => ArmorPower.NumberFormatter = new DecimalFormatter() { FractionDigits = 0, NumberRounder = new IncrementNumberRounder() };
     }
 }

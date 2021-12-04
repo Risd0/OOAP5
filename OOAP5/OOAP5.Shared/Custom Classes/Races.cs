@@ -139,7 +139,6 @@ class WarriorFacade
 }
 
 
-
 // presenting list, displaying with Syncfusion chart (histogram)
 public class ViewModelClass
 {
