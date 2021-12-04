@@ -36,6 +36,7 @@ namespace OOAP5
             warriorBuilder.PickNameAndRace(RaceOption.SelectionBoxItem.ToString(), CharacterName.Text);
             warriorBuilder.PickWeapon(WeaponOption.SelectionBoxItem.ToString());
             warriorBuilder.PickArmor((int)ArmorPower.Value);
+            warriorBuilder.PickShield(ShieldType.SelectionBoxItem.ToString());
 
             WarriorsList.Add(warriorBuilder.Warrior);
         }
@@ -44,7 +45,6 @@ namespace OOAP5
         {
             var flyout = new Flyout();
             var selectedOne = Heroes.SelectedItem;
-            flyout.ShowAt(Heroes as FrameworkElement);
 
             var selectedWarrior = WarriorsList[Heroes.SelectedIndex];
             var hits = selectedWarrior is Shielder ? (selectedWarrior as Shielder).AttackBlocks : 0;
@@ -52,7 +52,7 @@ namespace OOAP5
             {
 
                 hits++;
-            } while (true);
+            } while (false);
         }
 
         void IntFormatter() => ArmorPower.NumberFormatter = new DecimalFormatter() { FractionDigits = 0, NumberRounder = new IncrementNumberRounder() };

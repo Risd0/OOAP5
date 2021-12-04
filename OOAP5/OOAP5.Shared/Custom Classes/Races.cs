@@ -83,12 +83,29 @@ class Shielder : WarriorDecorator
 
     public Shielder(Warrior shielder, int attackBlocks) : base(shielder) { AttackBlocks = attackBlocks; }
 
-    public override string ToString() { return $"Attacks blocks: {AttackBlocks}"; }
+    public override string ToString() { return @$"{base.ToString()} 
+Attacks blocks: {AttackBlocks} "; }
 }
 
 class WarriorFacade
 {
     public Warrior Warrior { get; private set; }
+
+    static class WeaponsPower
+    {
+        public const int Bow = 245;
+        public const int Sword = 270;
+        public const int Mace = 190;
+        public const int Dagger = 225;
+        public const int Axe = 310;
+    }
+
+    static class Shield
+    {
+        public const int Wooden = 3;
+        public const int Steel = 10;
+        public const int Meteorite = 30;
+    }
 
     public void PickNameAndRace(string race, string name) => Warrior = race switch
     {
@@ -108,19 +125,20 @@ class WarriorFacade
         _ => new ArmedWarrior(Warrior),
     };
 
-    static class WeaponsPower
-    {
-        public const int Bow = 245;
-        public const int Sword = 270;
-        public const int Mace = 190;
-        public const int Dagger = 225;
-        public const int Axe = 310;
-    }
-
     public void PickArmor(int armor = 0) => Warrior.CurrDef += armor;
 
-    public void PickShield(int attackBlocks = 0) => Warrior = new Shielder(Warrior, attackBlocks);
+    public void PickShield(string shield)
+    {
+        switch (shield)
+        {
+            case nameof(Shield.Wooden): Warrior = new Shielder(Warrior, Shield.Wooden); break;
+            case nameof(Shield.Steel): Warrior = new Shielder(Warrior, Shield.Steel); break;
+            case nameof(Shield.Meteorite): Warrior = new Shielder(Warrior, Shield.Meteorite); break;
+            default: return;
+        }
+    }
 }
+
 
 
 // presenting list, displaying with Syncfusion chart (histogram)
