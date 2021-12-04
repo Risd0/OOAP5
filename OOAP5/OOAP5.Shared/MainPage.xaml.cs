@@ -1,20 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
+﻿using System.Collections.ObjectModel;
 using Windows.Globalization.NumberFormatting;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -50,6 +38,21 @@ namespace OOAP5
             warriorBuilder.PickArmor((int)ArmorPower.Value);
 
             WarriorsList.Add(warriorBuilder.Warrior);
+        }
+
+        public void WarriorDetails()
+        {
+            var flyout = new Flyout();
+            var selectedOne = Heroes.SelectedItem;
+            flyout.ShowAt(Heroes as FrameworkElement);
+
+            var selectedWarrior = WarriorsList[Heroes.SelectedIndex];
+            var hits = selectedWarrior is Shielder ? (selectedWarrior as Shielder).AttackBlocks : 0;
+            do
+            {
+
+                hits++;
+            } while (true);
         }
 
         void IntFormatter() => ArmorPower.NumberFormatter = new DecimalFormatter() { FractionDigits = 0, NumberRounder = new IncrementNumberRounder() };

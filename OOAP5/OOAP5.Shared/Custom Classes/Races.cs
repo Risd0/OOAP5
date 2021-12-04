@@ -58,7 +58,7 @@ abstract class Warrior
         CurrStrength = minStrength;
     }
 
-    public override string ToString() => $@"Name: {Name}
+    public override string ToString() => $@"Name: {Name} 
 Defense: {CurrDef} Strength: {CurrStrength}";
 }
 
@@ -75,16 +75,15 @@ abstract class WarriorDecorator : Warrior
     }
 }
 
-class ArmedWarrior : WarriorDecorator
-{
-    public ArmedWarrior(Warrior archer, int weaponPower = 0) : base(archer) { this.CurrStrength += weaponPower; }
-}
+class ArmedWarrior : WarriorDecorator { public ArmedWarrior(Warrior archer, int weaponPower = 0) : base(archer) { this.CurrStrength += weaponPower; } }
 
 class Shielder : WarriorDecorator
 {
     public int AttackBlocks { get; private set; }
 
     public Shielder(Warrior shielder, int attackBlocks) : base(shielder) { AttackBlocks = attackBlocks; }
+
+    public override string ToString() { return $"Attacks blocks: {AttackBlocks}"; }
 }
 
 class WarriorFacade
@@ -122,7 +121,6 @@ class WarriorFacade
 
     public void PickShield(int attackBlocks = 0) => Warrior = new Shielder(Warrior, attackBlocks);
 }
-
 
 
 // presenting list, displaying with Syncfusion chart (histogram)
