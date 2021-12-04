@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace OOAP5;
 
@@ -81,7 +80,7 @@ class Shielder : WarriorDecorator
 {
     public int AttackBlocks { get; private set; }
 
-    public Shielder(Warrior shielder, int attackBlocks) : base(shielder) { AttackBlocks = attackBlocks; }
+    public Shielder(Warrior shielder, int attackBlocks) : base(shielder) { AttackBlocks = attackBlocks; CurrStrength /= 2; }
 
     public override string ToString() { return @$"{base.ToString()} 
 Attacks blocks: {AttackBlocks} "; }

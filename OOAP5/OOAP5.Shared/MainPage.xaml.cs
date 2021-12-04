@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using Windows.Globalization.NumberFormatting;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
@@ -43,16 +44,31 @@ namespace OOAP5
 
         public void WarriorDetails()
         {
-            var flyout = new Flyout();
-            var selectedOne = Heroes.SelectedItem;
-
             var selectedWarrior = WarriorsList[Heroes.SelectedIndex];
-            var hits = selectedWarrior is Shielder ? (selectedWarrior as Shielder).AttackBlocks : 0;
-            do
+
+            List<(Warrior warrior, int hits)> strongerWarriors = new();
+            List<(Warrior warrior, int hits)> weakerWarriors = new();
+
+            foreach (var warrior in WarriorsList)
+            {
+                if (warrior == selectedWarrior) continue;   // check if selected warrior don't gonna compare with himself
+                // compute how many hits are needed to take down opponent
+                int selectedWarriorHits = GetBlocks(warrior) + DefPerDmg(selectedWarrior, warrior);
+                int warriorHits = GetBlocks(selectedWarrior) + DefPerDmg(warrior, selectedWarrior);
+                // the stronger one who has hits less
+                if (selectedWarriorHits <= warriorHits) weakerWarriors.Add((warrior, selectedWarriorHits));
+                else strongerWarriors.Add((warrior, warriorHits));
+            }
+
+            SelectedDetails.ShowAt(Heroes as FrameworkElement);
+
+            foreach (var stronger in strongerWarriors)
             {
 
-                hits++;
-            } while (false);
+            }
+
+            static int GetBlocks(Warrior warrior) => warrior is Shielder ? (warrior as Shielder).AttackBlocks : 0;
+            static int DefPerDmg(Warrior yourWarrior, Warrior opponent) => opponent.CurrDef / yourWarrior.CurrStrength;
         }
 
         void IntFormatter() => ArmorPower.NumberFormatter = new DecimalFormatter() { FractionDigits = 0, NumberRounder = new IncrementNumberRounder() };
