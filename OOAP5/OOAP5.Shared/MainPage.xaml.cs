@@ -61,21 +61,26 @@ namespace OOAP5
                 else strongerWarriors.Add((warrior, warriorHits));
             }
 
-            StringBuilder details = new();
+            var info = new StringBuilder();
+            info.AppendLine("Wins to:");
+            WarriorInfoPart(weakerWarriors, info);
+            info.AppendLine();
+            info.AppendLine("Lose to:");
+            WarriorInfoPart(strongerWarriors, info);
 
-            details.AppendLine("Heroes can beat:/");
-
-            foreach (var stronger in strongerWarriors)
-            {
-
-            }
+            WarriorInfo.Text = info.ToString();
             FlyoutInfo.ShowAt((FrameworkElement)Heroes);
-            
 
             static int GetBlocks(Warrior warrior) => warrior is Shielder ? (warrior as Shielder).AttackBlocks : 0;
             static int DefPerDmg(Warrior yourWarrior, Warrior opponent) => opponent.CurrDef / yourWarrior.CurrStrength;
+            static void WarriorInfoPart(List<(Warrior warrior, int hits)> warriorsList, StringBuilder info)
+            {
+                if (warriorsList.Count == 0) info.AppendLine("None");
+                else foreach (var opponent in warriorsList)
+                        info.AppendLine($"{opponent.warrior.Name} for {opponent.hits} hits");
+            }
         }
 
-        public INumberFormatter2 IntFormatter => ArmorPower.NumberFormatter = new DecimalFormatter() { FractionDigits = 0, NumberRounder = new IncrementNumberRounder() };
+        public INumberFormatter2 IntFormatter => new DecimalFormatter() { FractionDigits = 0, NumberRounder = new IncrementNumberRounder() };
     }
 }
