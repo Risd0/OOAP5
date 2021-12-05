@@ -34,6 +34,6 @@ UML Diagram (Class Diagram):
 ![image](https://user-images.githubusercontent.com/55552780/144746805-e5dee9f1-076f-4adb-95ed-7f920f0fe2d0.png)
 
 Основні контролери створення персонажа:  
-![overview1](https://user-images.githubusercontent.com/55552780/144762183-2ad13722-e501-48a2-aec3-b35b10565e4a.gif)
+![overview1](https://user-images.githubusercontent.com/55552780/144762183-2ad13722-e501-48a2-aec3-b35b10565e4a.gif) 
 Функціонал стовпчикової діаграми: 
 
