@@ -1,4 +1,5 @@
 
+
 <h3 align='center'> Варіант №4 </h3>
 
 ___
@@ -20,7 +21,15 @@ ___
 чийсь захист). При розробці скористатись шаблонами [Facade](https://refactoring.guru/design-patterns/facade/csharp/example) та [Decorator](https://metanit.com/sharp/patterns/4.1.php).
 
 ---
+
+UML Diagram (Class Diagram):
+
+![image](https://user-images.githubusercontent.com/55552780/144760931-ee1d01d2-092a-4002-b446-cd626c28b179.png)
+Додаткові класи (в тому числі й Фасад):
+![image](https://user-images.githubusercontent.com/55552780/144760992-95141022-eed1-458d-9125-830b727ecd9a.png)
+
+---
+
 Початковий вигляд UI:
 ![image](https://user-images.githubusercontent.com/55552780/144746805-e5dee9f1-076f-4adb-95ed-7f920f0fe2d0.png)
-<h4>Comboboxes and their items</h4>
 
