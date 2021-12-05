@@ -36,4 +36,5 @@ UML Diagram (Class Diagram):
 Основні контролери створення персонажа:  
 ![overview1](https://user-images.githubusercontent.com/55552780/144762183-2ad13722-e501-48a2-aec3-b35b10565e4a.gif)   
 Функціонал стовпчикової діаграми:   
+![overview2](https://user-images.githubusercontent.com/55552780/144762640-5d95263d-0d0a-4f26-8a62-2c57376780b2.gif)
 
