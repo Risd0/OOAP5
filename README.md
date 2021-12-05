@@ -39,4 +39,5 @@ UML Diagram (Class Diagram):
 ![overview2](https://user-images.githubusercontent.com/55552780/144762640-5d95263d-0d0a-4f26-8a62-2c57376780b2.gif)   
 Спливаюче вікно при некоректній спробі додати нового персонажа:    
 ![overview3](https://user-images.githubusercontent.com/55552780/144763232-3e664e5a-c218-4c5b-9343-2ad1a2c8ddc8.gif)   
-Створення нового воїна (персонажа, героя) і відображення його деталей, - хто дужчий за нього, а хто слабший:    
+ння нового воїна (персонажа, героя) і відображення його деталей, - хто дужчий за нього, а хто слабший:    
+Створе![overview4](https://user-images.githubusercontent.com/55552780/144764360-7a20f460-514e-4e2f-8d29-807b460e80c3.gif)   
