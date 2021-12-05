@@ -25,8 +25,7 @@ ___
 UML Diagram (Class Diagram):
 
 ![image](https://user-images.githubusercontent.com/55552780/144760931-ee1d01d2-092a-4002-b446-cd626c28b179.png)
-
-Додаткові класи (в тому числі й Фасад): 
+Додаткові класи (в тому числі й Фасад):       
 ![image](https://user-images.githubusercontent.com/55552780/144760992-95141022-eed1-458d-9125-830b727ecd9a.png)
 
 ---
