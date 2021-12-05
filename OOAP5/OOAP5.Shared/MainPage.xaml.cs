@@ -70,6 +70,7 @@ namespace OOAP5
 
             }
             FlyoutInfo.ShowAt((FrameworkElement)Heroes);
+            
 
             static int GetBlocks(Warrior warrior) => warrior is Shielder ? (warrior as Shielder).AttackBlocks : 0;
             static int DefPerDmg(Warrior yourWarrior, Warrior opponent) => opponent.CurrDef / yourWarrior.CurrStrength;
