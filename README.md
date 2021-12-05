@@ -1,3 +1,4 @@
+
 <h3 align='center'> Варіант №4 </h3>
 
 ___
@@ -18,5 +19,8 @@ ___
 побити за 1, 5 чи 10 ударів (чи перевищує сила його удару чи групи ударів
 чийсь захист). При розробці скористатись шаблонами [Facade](https://refactoring.guru/design-patterns/facade/csharp/example) та [Decorator](https://metanit.com/sharp/patterns/4.1.php).
 
-___
+---
+Початковий вигляд UI:
+![image](https://user-images.githubusercontent.com/55552780/144746805-e5dee9f1-076f-4adb-95ed-7f920f0fe2d0.png)
+<h4>Comboboxes and their items</h4>
 
